@@ -2,6 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import PRIORITY from "../../models/priority.enum";
+import '../../styles/RegisterTask.css';
 
 function RegisterTask({ createTask }) {
   const initialValues = {
@@ -17,8 +18,8 @@ function RegisterTask({ createTask }) {
   });
 
   return (
-    <div>
-      <h2>Registrar tarea</h2>
+    <div className="form-container">
+      <h2 className="title__form">Registrar tarea</h2>
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {
@@ -34,9 +35,10 @@ function RegisterTask({ createTask }) {
           handleChange,
           handleBlur,
         }) => (
-          <Form>
-            <label htmlFor="name">Nombre</label>
+          <Form className="form">
+            <label className="form__title" htmlFor="name">Nombre</label>
             <Field
+              className="form__input"
               id="name"
               type="text"
               name="name"
@@ -44,29 +46,31 @@ function RegisterTask({ createTask }) {
             />
 
             {errors.name && touched.name && (
-              <ErrorMessage name="name" component="div" />
+              <ErrorMessage className="form__error" name="name" component="div" />
             )}
 
-            <label htmlFor="description">Descripcion</label>
+            <label className="form__title" htmlFor="description">Descripcion</label>
             <Field
+              className="form__input"
               id="description"
-              type="text"
+              type="textfield"
               name="description"
               placeholder="Ingrese la descripcion"
             />
 
             <Field
+              className="form__select"
               name="priority"
               id="priority"
               component="select"
               default_value={PRIORITY.NORMAL}
             >
-              <option value={PRIORITY.NORMAL}>Normal</option>
+              <option className="form__select__option" value={PRIORITY.NORMAL}>Normal</option>
               <option value={PRIORITY.NO_URGENT}>No Urgente</option>
               <option value={PRIORITY.URGENT}>Urgente</option>
             </Field>
 
-            <button type="submit">Registar</button>
+            <button className="form__button" type="submit">Registar</button>
           </Form>
         )}
       </Formik>

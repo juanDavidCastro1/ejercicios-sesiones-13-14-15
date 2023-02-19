@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RegisterTask from "../forms/RegisterTask";
 import Task from "../pure/Task";
+import '../../styles/ListTask.css';
 
 function ListTask() {
   const [tasks, setTasks] = useState([]);
@@ -19,13 +20,15 @@ function ListTask() {
   console.log(tasks);
 
   return (
-    <>
+    <div className="main-container">
       <RegisterTask createTask={createTask} />
 
-      {tasks.map((task, index) => {
-        return <Task key={index} task={task} removeTask={removeTask} />;
-      })}
-    </>
+      <div className="container-task">
+        {tasks.map((task, index) => {
+          return <Task key={index} task={task} removeTask={removeTask} />;
+        })}
+      </div>
+    </div>
   );
 }
 

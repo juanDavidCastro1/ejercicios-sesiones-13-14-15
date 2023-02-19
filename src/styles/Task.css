@@ -1,0 +1,26 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+    height: 160px;
+    border-radius: 10px;
+}
+
+.card__title{
+    margin: 5px 0;
+    text-transform: uppercase;
+    font-size: 22px;
+}
+
+.card__description{
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.card__button{
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    border: none; 
+}
