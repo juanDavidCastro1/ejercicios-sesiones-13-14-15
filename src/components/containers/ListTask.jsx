@@ -17,8 +17,6 @@ function ListTask() {
     setTasks(tempTask);
   }
 
-  console.log(tasks);
-
   return (
     <div className="main-container">
       <RegisterTask createTask={createTask} />
